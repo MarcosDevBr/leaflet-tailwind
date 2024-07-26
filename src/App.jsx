@@ -1,10 +1,24 @@
+import { light } from './styles/theme';
+import { ThemeProvider } from 'styled-components';
+import GlobalStyle from './styles/global';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import MainRoutes from './routes/Routes';
+import paths from './routes/paths';
+
 function App() {
   return (
-   <main className="py-10 bg-blue-50 h-screen">
-    <h1 className="font-bold text-3xl text-center">
-      Wello Hord!
-    </h1>
-   </main>
+    <ThemeProvider theme={light}>
+      <GlobalStyle />
+
+      <BrowserRouter>
+        <Routes>
+          <Route path={paths.root} element={<MainRoutes />} />
+        </Routes>
+      </BrowserRouter>
+
+    </ThemeProvider>
+
+   
   )
 }
 
